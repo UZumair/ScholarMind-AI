@@ -1,0 +1,194 @@
+
+/* CSS Variables for Dark Animated Theme */
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #4cc9f0;
+  --accent-color: #f72585;
+  --dark-bg: #16213e;
+  --darker-bg: #0f3460;
+  --light-text: #e9ecef;
+  --dark-text: #212529;
+  --success-color: #4ad66d;
+  --warning-color: #ff9e00;
+  --border-color: #495057;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --mobile-breakpoint: 768px;
+}
+
+/* Animated Background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, 
+    var(--darker-bg), 
+    var(--dark-bg), 
+    #1a1a2e, 
+    #16213e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--light-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Main App Container */
+.stApp {
+  background-color: rgba(22, 33, 62, 0.85);
+  backdrop-filter: blur(8px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header - Dark Theme */
+.stApp header {
+  background-color: rgba(26, 26, 46, 0.9);
+  color: var(--light-text);
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: 250px;
+    padding: 2rem;
+    margin-top: 0;
+  }
+}
+
+/* Cards - Dark Theme */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 600px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: rgba(31, 41, 55, 0.8);
+  color: var(--light-text);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--secondary-color);
+  backdrop-filter: blur(2px);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Elements - Dark Theme */
+.stTextInput input,
+.stTextArea textarea,
+.stSelectbox select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--light-text);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons - Dark Theme */
+.stButton button {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.stButton button:hover {
+  background-color: #3aa8d8;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .stButton button {
+    width: auto;
+  }
+}
+
+/* Utility Classes */
+.text-highlight {
+  color: var(--secondary-color);
+}
+
+.contrast-text {
+  color: var(--light-text);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Tab Styles */
+.stTabs [role="tab"] {
+    color: white !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: #3498db;
+    font-weight: bold;
+}
+
+.stTabs [role="tab"]:not([aria-selected="true"]) {
+    background-color: #2c3e50;
+    opacity: 0.8;
+}
+
+.stTabs [role="tab"]:hover {
+    opacity: 1;
+    border-color: white;
+}
